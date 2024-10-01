@@ -67,7 +67,6 @@ app.post("/joke", async (req, res) => {
         let standardPar = "?type=single&safe-mode&lang=en";
         let parStr = `${categoryStr}${standardPar}&amount=${req.body["numJokes"]}&contains=${req.body["contains"]}`;
         let url = `https://v2.jokeapi.dev/joke/${parStr}`;
-        console.log(url);
         const response = await axios.get(url);
         res.render("index.ejs", {response: response.data});
     } catch (error) {
